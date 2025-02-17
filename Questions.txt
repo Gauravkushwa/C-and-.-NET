@@ -1,0 +1,287 @@
+Que1. What are the different types of loops in C#?
+
+Ans. 
+    Five types of loop in c# -
+        1. while loop
+        2. do-while
+        3. for loop
+        4. foreach
+        5. nested loop
+
+
+Que2. Explain the syntax and working of the for loop in C#.
+ 
+Ans. 
+    for(int i=0; i<10; i++)
+    {
+        Console.WriteLine(i);
+    }
+
+
+Que3. How does a while loop work?
+
+Ans.
+    provide the partial value of varialble than check the condition if true than exicute
+     and than exicute increament or decrement than go linear if the condition is false than stop.
+
+     Example:
+        int i = 0;
+        while(i< 10)
+        {
+            Console.WriteLine(i)
+            i++
+        }
+
+
+Que4. What is the difference between a while loop and a do-while loop?
+
+Ans.
+    while loop is check the condition first than exicute but do-while case first exicute the code than check condition
+     if the initialy condition is false than in case of while it will not exicute but do-while case it will run atleast ont time.
+
+
+Que5. What happens if the loop condition in a while loop is initially false?
+
+Ans.
+    if the condition of while loop initially false than code is not exicute.
+
+
+Que6. How do you use a foreach loop in C#?
+
+Ans.
+    A foreach loop is used to go through each item in a collection
+
+    Example:
+
+        int[] numbers = { 1, 2, 3, 4, 5 };
+        foreach (int number in numbers)
+        {
+            Console.WriteLine(number);
+        }
+
+Que7. Can we modify elements inside a foreach loop? Why or why not?
+
+Ans.
+    We can't modify elements inside a foreach loop.
+     Because foreach loop read elements not change them.
+
+
+
+  
+      // Intemediate Questions
+
+Que1.  What is an infinite loop? Provide examples using for, while, and do-while.
+
+Ans.
+    infinite loop is those loop where loop is never stop running.
+
+    Example:
+        for(;;)
+        {
+            Console.WriteLine("this loop never stop");
+        }
+
+    Example:
+        while(true)
+        {
+            Console.WriteLine("this loop never stop");
+        }
+
+    Example:
+        do{
+            Console.WriteLine("this loopp never end");
+        }
+
+
+Que2. How does the break statement work inside loops?
+
+Ans:
+    when the condition is true than loop is end, or stop;
+
+    Example:
+        for(let i=0; i<22; i++)
+        {
+            Console.WriteLine(i);
+            if(i === 5)
+            {
+                break;
+            }
+        }
+
+
+Que3.  What is the role of the continue statement in loops?
+
+Ans. if the condition is true than skip the those particular iteration and moves to next iteration;
+
+     Example:
+        for(let i=0; i<22; i++)
+        {
+            Console.WriteLine(i);
+            if(i === 5)
+            {
+                continue;
+            }
+        }
+
+
+Que4.  How can you exit multiple nested loops at once?
+
+Ans:
+    with the help of break statement we can exit the nested loop;
+
+    Example:
+        outerLoop: 
+        for (int i = 0; i < 3; i++)
+        {
+            for (int j = 0; j < 3; j++)
+            {
+                if (i == 1 && j == 1)
+                    break outerLoop; 
+                Console.WriteLine($"i = {i}, j = {j}");
+            }
+        }
+
+
+Que5.  What is the difference between break and return inside a loop?
+
+Ans:
+    break statement is break the loop and come outside the loop 
+    return Stops the loop and the entire method, returning control to the caller.
+
+
+Que6. How do you iterate through an array using loops?
+
+Ans.
+    we can use a for loop or foreach loop to go through each item in the array.
+
+    Example:
+        int[] numbers = { 10, 20, 30, 40, 50 };
+        for (int i = 0; i < numbers.Length; i++)
+        {
+            Console.WriteLine(numbers[i]);
+        }
+
+
+Que7.  Write a C# program to find the largest and smallest number in an array using loops.
+
+Ans.
+  using System;
+
+class Program
+{
+    static void Main()
+    {
+        int[] numbers = { 5, 3, 9, 1, 7 };
+        int largest = numbers[0];
+        int smallest = numbers[0];
+
+        for (int i = 0; i < numbers.Length; i++)
+        {
+            if (numbers[i] > largest)
+                largest = numbers[i]; 
+            if (numbers[i] < smallest)
+                smallest = numbers[i]; 
+        }
+
+        Console.WriteLine("Largest number: " + largest);
+        Console.WriteLine("Smallest number: " + smallest);
+    }
+}
+
+
+
+       // Advance Questions
+
+
+Que1.   Can a for loop run forever? If yes, how?
+
+Ans.
+    Yes a for loop can forever if we don't give anay condition to stop.
+
+    Example:
+        for (;;)
+        {
+            Console.WriteLine("This will run forever!");
+        }
+
+
+Que2.   How do you implement a loop using recursion instead of a loop?
+
+Ans.
+    we can use recursion to repeat something instead of using a loop.
+
+    Example:
+        void PrintNumbers(int n)
+        {
+            if (n > 0)
+            {
+                Console.WriteLine(n);
+                PrintNumbers(n - 1);
+            }
+        }
+
+        PrintNumbers(5);
+
+
+Que3. What is the impact of using goto inside loops? Is it recommended?
+
+Ans.
+    goto is used for jump to a specific part of the code,
+    it is not recommended Because it makes the code hard to read and understand.
+
+
+Que4.  How does a foreach loop work internally in C#?
+
+Ans.
+    A foreach loop uses something called an enumerator to go through each item in a collection.
+
+    It automatically gets the next item until there are no more items.
+
+5. Can a foreach loop be replaced with a for loop? If yes, in what cases?
+
+Ans.
+    Yes, you can replace a foreach loop with a for loop if you know the size of the collection.
+
+    Example:
+
+        int[] numbers = { 1, 2, 3, 4, 5 };
+
+        foreach (int number in numbers)
+        {
+            Console.WriteLine(number);
+        }
+
+        for (int i = 0; i < numbers.Length; i++)
+        {
+            Console.WriteLine(numbers[i]);
+        }
+6. How do you optimize performance in loops when working with large datasets?
+Use for loops instead of foreach if you need to change items.
+
+        Avoid doing heavy work inside the loop.
+        Use Parallel.ForEach for large datasets to use multiple CPU cores.
+
+7. What are the best practices for writing efficient loops in C#?
+
+Ans.
+    Use the right loop (for, while, foreach) for the job.
+
+        Keep the loop body simple and fast.
+        Avoid unnecessary calculations inside the loop.
+
+8. How does the Parallel.ForEach loop differ from a normal foreach loop?
+
+Ans.
+    Parallel.ForEach runs the loop on multiple threads, so it can be faster for large datasets.
+
+ Normal foreach runs on a single thread.
+
+    Example:
+
+        int[] numbers = { 1, 2, 3, 4, 5 };
+
+        Parallel.ForEach(numbers, number =>
+        {
+            Console.WriteLine(number);
+        });
+
